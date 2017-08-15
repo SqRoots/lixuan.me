@@ -112,7 +112,8 @@ module.exports = function(grunt) {
           '**/*.jpg',
           '**/*.png',
           '**/*.gif',
-          '**/*.ico'
+          '**/*.ico',
+		  '**/*.config'
         ],
         dest: 'dist/'
       },
