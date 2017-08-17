@@ -12,7 +12,13 @@
     <link rel="icon" href="./favicon.ico">
   </head>
   <body>
-    <header>李宣</header>
+    <header>
+      <ul id='app-4'>
+        <li v-for="item in contents">
+          {{ item.name }}
+        </li>
+      </ul>
+    </header>
     <nav>
       <ul>
         <li>1aasdf 2aasdf 3aasdf</li>
@@ -22,7 +28,7 @@
       </ul>
     </nav>
     <article>
-      <div>
+      <div id="a">
         1aasdf 2aasdf 3aasdf 4aasdf 5aasdf 6aasdf<br>1aasdf 2aasdf 3aasdf 4aasdf 5aasdf 6aasdf<br>1aasdf 2aasdf 3aasdf 4aasdf 5aasdf 6aasdf
       </div>
     </article>

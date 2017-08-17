@@ -31,26 +31,26 @@ module.exports = function(grunt) {
     },
 
     //ES6转换ES5（插件uglify3.0.1不支持ES6）
-    babel: {
-      options: {
-        sourceMap: false,
-        presets: ['babel-preset-es2015'],
-        plugins: ["transform-remove-strict-mode"]
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: 'src/js-6/', //js目录下
-          src: ['**/*.js'], //所有js文件
-          dest: 'temporary-files/js-5' //输出到此目录下
-        }]
-      }
-    },
+    // babel: {
+    //   options: {
+    //     sourceMap: false,
+    //     presets: ['babel-preset-es2015'],
+    //     plugins: ["transform-remove-strict-mode"]
+    //   },
+    //   dist: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: 'src/js-6/', //js目录下
+    //       src: ['**/*.js'], //所有js文件
+    //       dest: 'temporary-files/js-5' //输出到此目录下
+    //     }]
+    //   }
+    // },
 
 
     //查检
     jshint: {
-      files: ['Gruntfile.js', 'temporary-files/js-5/**/*.js'],
+      files: ['Gruntfile.js', 'src/js/**/*.js'],
       options: {
         curly: true,
         eqeqeq: true,
@@ -72,13 +72,13 @@ module.exports = function(grunt) {
       options: {
         screwIE8: false,
         compress: {
-          drop_console: true
+          drop_console: false
         }
       },
       uglifyJS: {
         files: [{
           expand: true,
-          src: ['temporary-files/js-5/**/*.js', '!*.min.js'],
+          src: ['src/js/**/*.js', '!*.min.js'],
           dest: 'dist/js/main.min.js',
           cwd: '.',
           rename: function(dest, src) {//重命名 js：添加时间戳
@@ -109,6 +109,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'src/',
         src: [
+          '**/*.json',
           '**/*.jpg',
           '**/*.png',
           '**/*.gif',
@@ -141,7 +142,7 @@ module.exports = function(grunt) {
   });
 
   //告诉grunt我们将使用插件
-  grunt.loadNpmTasks('grunt-babel');
+  // grunt.loadNpmTasks('grunt-babel');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -153,6 +154,6 @@ module.exports = function(grunt) {
 
 
   //告诉grunt当我们在终端中输入grunt时需要做些什么(注意先后顺序)
-  grunt.task.registerTask('default', ['clean', 'htmlmin', 'babel', 'jshint', 'uglify', 'less', 'copy', 'concat']);
+  grunt.task.registerTask('default', ['clean', 'htmlmin', 'jshint', 'uglify', 'less', 'copy', 'concat']);
 
 };

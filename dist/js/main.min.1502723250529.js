@@ -1,1 +1,0 @@
-for(var a=10,i=1;i<a;i++)var c=2*i;var zaa=1;
