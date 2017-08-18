@@ -13,24 +13,21 @@
   </head>
   <body>
     <header>
-      <ul id='app-4'>
-        <li v-for="item in contents">
+      <ul id='header'>
+        <li v-for="item in tree1" v-on:click="active_tree1(item)" v-bind:class="{ active: item.isActive }">
           {{ item.name }}
         </li>
       </ul>
     </header>
     <nav>
-      <ul>
-        <li>1aasdf 2aasdf 3aasdf</li>
-        <li>1aasdf 2aasdf 3aasdf</li>
-        <li>1aasdf 2aasdf 3aasdf</li>
-        <li>1aasdf 2aasdf 3aasdf</li>
+      <ul id='nav'>
+        <li v-for="item in tree2">
+          {{ item.name }}
+        </li>
       </ul>
     </nav>
     <article>
-      <div id="a">
-        1aasdf 2aasdf 3aasdf 4aasdf 5aasdf 6aasdf<br>1aasdf 2aasdf 3aasdf 4aasdf 5aasdf 6aasdf<br>1aasdf 2aasdf 3aasdf 4aasdf 5aasdf 6aasdf
-      </div>
+      <div id="a"></div>
     </article>
     <aside>aasdf<br>aasdf<br>aasdfaasdf<br>aasdf<br>aasdf</aside>
     <script type="text/javascript" src="./js/main.min.--timestamp--.js"></script>

@@ -1,22 +1,38 @@
+
 axios.get('./contents-data.json')
   .then(function (response) {
-    for(var i in response.data){
-      console.log(response.data[i]);
-    }
+    document.getElementById('a').innerHTML=response.data[0].name;
 
-    document.getElementById('a').innerHTML=response.data.welfare.name;
+    var header_data=[{'name': '李宣', "isActive": true}];
+    header_data=header_data.concat(response.data);
 
-    var temp=[];
-    for(var k in response.data){
-      temp.push(response.data[k]);
-    }
-
-    var app4 = new Vue({
-      el: '#app-4',
+    var header = new Vue({
+      el: '#header',
       data: {
-        contents: temp
+        tree1: header_data
+      },
+      methods: {
+        //点击一级目录
+        active_tree1: function (doc) {
+          //删除所有项目的 active 类
+          header_data.forEach(function(item){
+            item.isActive=false;
+          });
+          //为当前项目添加 active 类
+          doc.isActive=true;
+          nav.data.tree2=doc.data;
+          console.log(nav.data.tree2);
+        }
       }
     });
+
+    var nav = new Vue({
+      el: '#nav',
+      data: {
+        tree2: [{"name": "aa", "key": "bb"}]
+      }
+    });
+
   })
   .catch(function (error) {
     console.log('error');

@@ -1,1 +1,0 @@
-for(var a=10,i=1;i<a;i++)var c=2*i;axios.get("./contents-data.json").then(function(a){for(var n in a.data)console.log(a.data[n]);document.getElementById("a").innerHTML=a.data.welfare.name;var t=[];for(var e in a.data)t.push(a.data[e]);new Vue({el:"#app-4",data:{contents:t}})}).catch(function(a){console.log("error")});var zaa=1;

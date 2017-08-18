@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      5323,        173]
-NotebookOptionsPosition[      4274,        139]
-NotebookOutlinePosition[      4619,        154]
-CellTagsIndexPosition[      4576,        151]
+NotebookDataLength[     10192,        258]
+NotebookOptionsPosition[      8990,        219]
+NotebookOutlinePosition[      9348,        235]
+CellTagsIndexPosition[      9305,        232]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -50,46 +50,65 @@ Cell[CellGroupData[{
 Cell[BoxData[{
  RowBox[{
   RowBox[{"json", "=", 
-   RowBox[{"GroupBy", "[", 
+   RowBox[{
     RowBox[{
-     RowBox[{"data", "[", 
-      RowBox[{"[", 
-       RowBox[{"2", ";;"}], "]"}], "]"}], ",", 
-     RowBox[{"First", "\[Rule]", 
-      RowBox[{"(", 
-       RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<key\>\"", "\[Rule]", 
         RowBox[{"#", "[", 
          RowBox[{"[", 
-          RowBox[{"2", ";;"}], "]"}], "]"}], "&"}], ")"}]}], ",", 
-     RowBox[{"(", 
-      RowBox[{
-       RowBox[{"<|", 
-        RowBox[{
-         RowBox[{"\"\<name\>\"", "\[Rule]", 
-          RowBox[{"#", "[", 
-           RowBox[{"[", 
-            RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ",", 
-         RowBox[{"\"\<data\>\"", "\[Rule]", 
+          RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ",", 
+       RowBox[{"\"\<name\>\"", "\[Rule]", 
+        RowBox[{"#", "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ",", "2"}], "]"}], "]"}]}], ",", 
+       RowBox[{"\"\<isActive\>\"", "\[Rule]", 
+        RowBox[{"#", "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ",", "3"}], "]"}], "]"}]}], ",", 
+       RowBox[{"\"\<data\>\"", "\[Rule]", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"<|", 
+            RowBox[{
+             RowBox[{"\"\<name\>\"", "\[Rule]", 
+              RowBox[{"#", "[", 
+               RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+             RowBox[{"\"\<key\>\"", "\[Rule]", 
+              RowBox[{"#", "[", 
+               RowBox[{"[", "2", "]"}], "]"}]}]}], "|>"}], "&"}], "/@", 
           RowBox[{"#", "[", 
            RowBox[{"[", 
             RowBox[{";;", ",", 
-             RowBox[{"2", ";;"}]}], "]"}], "]"}]}]}], "|>"}], "&"}], ")"}]}], 
-    "]"}]}], ";"}], "\[IndentingNewLine]", 
+             RowBox[{"4", ";;"}]}], "]"}], "]"}]}], ")"}]}]}], "|>"}], "&"}], 
+    "/@", 
+    RowBox[{"GatherBy", "[", 
+     RowBox[{
+      RowBox[{"data", "[", 
+       RowBox[{"[", 
+        RowBox[{"2", ";;"}], "]"}], "]"}], ",", "First"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{"Export", "[", 
   RowBox[{"\"\<../src/contents-data.json\>\"", ",", "json", ",", 
    RowBox[{"\"\<Compact\>\"", "\[Rule]", "True"}], ",", 
    RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF-8\>\""}]}], 
   "]"}]}], "Input",
  CellChangeTimes->{{3.7119665017518096`*^9, 3.7119665310331225`*^9}, {
-  3.7119688759158387`*^9, 3.7119688762781267`*^9}, {3.7119689131751914`*^9, 
-  3.7119689591792545`*^9}, {3.7119707963989325`*^9, 
-  3.7119707990209827`*^9}},ExpressionUUID->"eb7872da-ffdf-44e7-a2bf-\
+   3.7119688759158387`*^9, 3.7119688762781267`*^9}, {3.7119689131751914`*^9, 
+   3.7119689591792545`*^9}, {3.7119707963989325`*^9, 3.7119707990209827`*^9}, 
+   3.712015463203825*^9, {3.712028889450204*^9, 3.7120289099435234`*^9}, {
+   3.712028980735615*^9, 3.7120290072410765`*^9}, {3.7120333781299853`*^9, 
+   3.7120334180163536`*^9}},ExpressionUUID->"eb7872da-ffdf-44e7-a2bf-\
 5514ca496d04"],
 
 Cell[BoxData["\<\"../src/contents-data.json\"\>"], "Output",
  CellChangeTimes->{
-  3.711970809590803*^9},ExpressionUUID->"3c8b6f2c-ed55-42fc-8dc4-\
-c24f6e5c55aa"]
+  3.711970809590803*^9, 3.7120154640218983`*^9, 3.7120289121741886`*^9, {
+   3.712029008725762*^9, 3.7120290351313868`*^9}, {3.7120290808587093`*^9, 
+   3.7120290878096356`*^9}, 3.7120334192325954`*^9, 
+   3.712034597053328*^9},ExpressionUUID->"91ef4fc0-21e3-4ce6-8c68-\
+aabdf8b942f5"]
 }, Open  ]]
 }, Open  ]],
 
@@ -100,46 +119,108 @@ Cell["\:5bfc\:51faJSON\:6587\:672c", "Subchapter",
   3.711968906571683*^9}},ExpressionUUID->"7d3a8290-8cf0-4ee6-b990-\
 e7e498dc8061"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[{
  RowBox[{
   RowBox[{"json", "=", 
-   RowBox[{"GroupBy", "[", 
+   RowBox[{
     RowBox[{
-     RowBox[{"data", "[", 
-      RowBox[{"[", 
-       RowBox[{"2", ";;"}], "]"}], "]"}], ",", 
-     RowBox[{"First", "\[Rule]", 
-      RowBox[{"(", 
-       RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<key\>\"", "\[Rule]", 
         RowBox[{"#", "[", 
          RowBox[{"[", 
-          RowBox[{"2", ";;"}], "]"}], "]"}], "&"}], ")"}]}], ",", 
-     RowBox[{"(", 
-      RowBox[{
-       RowBox[{"<|", 
-        RowBox[{
-         RowBox[{"\"\<name\>\"", "\[Rule]", 
-          RowBox[{"#", "[", 
-           RowBox[{"[", 
-            RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ",", 
-         RowBox[{"\"\<data\>\"", "\[Rule]", 
+          RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ",", 
+       RowBox[{"\"\<name\>\"", "\[Rule]", 
+        RowBox[{"#", "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ",", "2"}], "]"}], "]"}]}], ",", 
+       RowBox[{"\"\<isActive\>\"", "\[Rule]", 
+        RowBox[{"#", "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ",", "3"}], "]"}], "]"}]}], ",", 
+       RowBox[{"\"\<data\>\"", "\[Rule]", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"<|", 
+            RowBox[{
+             RowBox[{"\"\<name\>\"", "\[Rule]", 
+              RowBox[{"#", "[", 
+               RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+             RowBox[{"\"\<key\>\"", "\[Rule]", 
+              RowBox[{"#", "[", 
+               RowBox[{"[", "2", "]"}], "]"}]}]}], "|>"}], "&"}], "/@", 
           RowBox[{"#", "[", 
            RowBox[{"[", 
             RowBox[{";;", ",", 
-             RowBox[{"2", ";;"}]}], "]"}], "]"}]}]}], "|>"}], "&"}], ")"}]}], 
-    "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Developer`WriteRawJSONString", "[", 
-   RowBox[{"json", ",", 
-    RowBox[{"\"\<Compact\>\"", "\[Rule]", "True"}]}], "]"}], ";"}]}], "Input",
- CellChangeTimes->{{3.7119689449429426`*^9, 
-  3.71196896081166*^9}},ExpressionUUID->"af5ea7da-5aae-41d0-871f-\
-2e1e0cad81df"]
+             RowBox[{"4", ";;"}]}], "]"}], "]"}]}], ")"}]}]}], "|>"}], "&"}], 
+    "/@", 
+    RowBox[{"GatherBy", "[", 
+     RowBox[{
+      RowBox[{"data", "[", 
+       RowBox[{"[", 
+        RowBox[{"2", ";;"}], "]"}], "]"}], ",", "First"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Developer`WriteRawJSONString", "[", 
+  RowBox[{"json", ",", 
+   RowBox[{"\"\<Compact\>\"", "\[Rule]", "False"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7119689449429426`*^9, 3.71196896081166*^9}, {
+   3.7120154723844476`*^9, 3.712015491658478*^9}, 3.7120289179845963`*^9, 
+   3.7120290124079905`*^9, 
+   3.712033422341902*^9},ExpressionUUID->"af5ea7da-5aae-41d0-871f-\
+2e1e0cad81df"],
+
+Cell[BoxData["\<\"[\\n\\t{\\n\\t\\t\\\"key\\\":\\\"welfare\\\",\\n\\t\\t\\\"\
+name\\\":\\\"\:516c\:76ca\\\",\\n\\t\\t\\\"isActive\\\":false,\\n\\t\\t\\\"\
+data\\\":[\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\:6211\:7684\:7b14\
+\:8bb0\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"note\\\"\\n\\t\\t\\t},\\n\\t\\t\\t{\
+\\n\\t\\t\\t\\t\\\"name\\\":\\\"\:6570\:636e\:5206\:4eab\\\",\\n\\t\\t\\t\\t\\\
+\"key\\\":\\\"data-share\\\"\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"\
+name\\\":\\\"GitHub\:4e2d\:7684\:9879\:76ee\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\
+\"github\\\"\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\:4e3b\
+\:9875\:ff1a\:60a8\:6b63\:5728\:6d4f\:89c8\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"\
+lixuan\\\"\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\:7f51\
+\:7ad9\:ff1aMathematica \:95ee\:7b54\:793e\:533a\\\",\\n\\t\\t\\t\\t\\\"key\\\
+\":\\\"mmaqa\\\"\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\
+\:7f51\:7ad9\:ff1a\:6570\:5b66\:4e4b\:8def - \:6570\:5b66\:8bba\:575b\\\",\\n\
+\\t\\t\\t\\t\\\"key\\\":\\\"shuxue6\\\"\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\\
+t\\t\\\"name\\\":\\\"\:535a\:5ba2\:ff1a\:95f2\:4e91\:8c37\[Bullet]\:6570\:7406\
+\:7248\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"shuli-xianyungu\\\"\\n\\t\\t\\t},\\\
+n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\:535a\:5ba2\:ff1a\:95f2\:4e91\
+\:8c37\[Bullet]\:5a31\:4e50\:7248\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"yule-\
+xianyungu\\\"\\n\\t\\t\\t}\\n\\t\\t]\\n\\t},\\n\\t{\\n\\t\\t\\\"key\\\":\\\"\
+collections\\\",\\n\\t\\t\\\"name\\\":\\\"\:5178\:85cf\\\",\\n\\t\\t\\\"\
+isActive\\\":false,\\n\\t\\t\\\"data\\\":[\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"\
+name\\\":\\\"\:7f51\:7ad9\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"web\\\"\\n\\t\\t\
+\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\:6570\:636e\\\",\\n\\t\\t\\\
+t\\t\\\"key\\\":\\\"data\\\"\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"\
+name\\\":\\\"\:8f6f\:4ef6\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"software\\\"\\n\\\
+t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\:4e66\:67b6\\\",\\n\\t\
+\\t\\t\\t\\\"key\\\":\\\"book\\\"\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\
+\"name\\\":\\\"\:683c\:8a00\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"motto\\\"\\n\\\
+t\\t\\t}\\n\\t\\t]\\n\\t},\\n\\t{\\n\\t\\t\\\"key\\\":\\\"entertainment\\\",\\\
+n\\t\\t\\\"name\\\":\\\"\:5a31\:4e50\\\",\\n\\t\\t\\\"isActive\\\":false,\\n\\\
+t\\t\\\"data\\\":[\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\:7167\:7247\\\
+\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"picture\\\"\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\\
+t\\t\\t\\t\\\"name\\\":\\\"\:97f3\:4e50\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"\
+music\\\"\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\:5f71\
+\:89c6\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"movie\\\"\\n\\t\\t\\t},\\n\\t\\t\\t{\
+\\n\\t\\t\\t\\t\\\"name\\\":\\\"\:6587\:7ae0\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\
+\"artical\\\"\\n\\t\\t\\t}\\n\\t\\t]\\n\\t}\\n]\"\>"], "Output",
+ CellChangeTimes->{{3.71201547272445*^9, 3.712015491934478*^9}, 
+   3.712028918460908*^9, {3.71202901274405*^9, 3.7120290308899436`*^9}, 
+   3.7120290818111286`*^9, 3.7120334226386495`*^9, 
+   3.712034597804327*^9},ExpressionUUID->"eae5f0a9-3714-441f-9b17-\
+78586c088db9"]
+}, Open  ]]
 }, Open  ]]
 },
 WindowSize->{858, 833},
 WindowMargins->{{Automatic, 76}, {-111, Automatic}},
-FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (April 18, 2017)",
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (2017\:5e744\:670818\
+\:65e5)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -163,17 +244,21 @@ Cell[CellGroupData[{
 Cell[1140, 42, 178, 3, 67, "Subchapter", "ExpressionUUID" -> \
 "3ddd37bf-658c-43cd-8d67-057c018d0546"],
 Cell[CellGroupData[{
-Cell[1343, 49, 1375, 37, 50, "Input", "ExpressionUUID" -> \
+Cell[1343, 49, 2072, 53, 88, "Input", "ExpressionUUID" -> \
 "eb7872da-ffdf-44e7-a2bf-5514ca496d04"],
-Cell[2721, 88, 162, 3, 30, "Output", "ExpressionUUID" -> \
-"3c8b6f2c-ed55-42fc-8dc4-c24f6e5c55aa"]
+Cell[3418, 104, 366, 6, 30, "Output", "ExpressionUUID" -> \
+"91ef4fc0-21e3-4ce6-8c68-aabdf8b942f5"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2932, 97, 178, 3, 67, "Subchapter", "ExpressionUUID" -> \
+Cell[3833, 116, 178, 3, 67, "Subchapter", "ExpressionUUID" -> \
 "7d3a8290-8cf0-4ee6-b990-e7e498dc8061"],
-Cell[3113, 102, 1145, 34, 50, "Input", "ExpressionUUID" -> \
-"af5ea7da-5aae-41d0-871f-2e1e0cad81df"]
+Cell[CellGroupData[{
+Cell[4036, 123, 1771, 49, 88, "Input", "ExpressionUUID" -> \
+"af5ea7da-5aae-41d0-871f-2e1e0cad81df"],
+Cell[5810, 174, 3152, 41, 1741, "Output", "ExpressionUUID" -> \
+"eae5f0a9-3714-441f-9b17-78586c088db9"]
+}, Open  ]]
 }, Open  ]]
 }
 ]
