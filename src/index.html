@@ -25,7 +25,7 @@
       <h3>{{ title }}</h3>
       <ul>
         <li v-for="item in tree2" v-on:click="clicke_tree2(item)" v-bind:class="{ active: item.isActive }">
-          {{ item.name }}
+          <i v-bind:class="item.ico"></i> {{ item.name }}
         </li>
       </ul>
     </nav>

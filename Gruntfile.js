@@ -129,12 +129,18 @@ module.exports = function(grunt) {
             return content.replace(/\.--timestamp--\.(css|js)/g, '.' + timestamp + '.$1');
           }
         }
+      },
+      css:{
+        expand: true,
+        cwd: 'src/less/foundation-icons/',
+        src: ['foundation-icons.woff', 'foundation-icons.ttf', 'foundation-icons.svg', 'foundation-icons.eot'],
+        dest: 'dist/css/'
       }
     },
 	//concat 借用，用于重命名 css 文件
 	concat: {
 		basic: {
-		  src: ['temporary-files/css/main.min.css'],
+		  src: ['temporary-files/css/main.min.css', 'src/less/foundation-icons/foundation-icons.css'],
 		  dest: 'dist/css/main.min.<%= myVar %>.css',
 		}
 	}
