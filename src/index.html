@@ -14,20 +14,8 @@
     <link rel="icon" href="./favicon.ico">
   </head>
   <body>
-    <header>
-      <ul id='header'>
-        <li v-for="item in tree1" v-on:click="clicke_tree1(item)" v-bind:class="{ active: item.isActive }">
-          {{ item.name }}
-        </li>
-      </ul>
-    </header>
     <nav id='nav'>
-      <h3>{{ title }}</h3>
-      <ul>
-        <li v-for="item in tree2" v-on:click="clicke_tree2(item)" v-bind:class="{ active: item.isActive }">
-          <i v-bind:class="item.ico"></i> {{ item.name }}
-        </li>
-      </ul>
+      <tree-folder-contents :children='children'></tree-folder-contents>
     </nav>
     <article>
       <div id="article" v-html="html"></div>

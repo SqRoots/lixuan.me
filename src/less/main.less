@@ -1,45 +1,10 @@
 @import "variables.less";
 //■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-//一级目录
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 0;
-  z-index: 9;
-  width: @header_width;
-  height: 100%;
-  font-size: 16px;
-  color: @header_color;
-  background-color: @header_bg_color;
-  // .border-right;
-  border:  1px solid rgba(50,50,50,0.5);
-  ul{
-    margin: 0;
-    padding: 0;
-    li{
-      list-style-type: none;
-      margin: 3px 0;
-      padding: 7px 9px;
-      &:hover{
-        cursor: pointer;
-        background-color: darken(@header_bg_color, 10%);
-        color: lighten(@header_color, 10%);
-      }
-      &.active{
-        margin-right: -1px;
-        border-right: none;
-        background-color: @nav_bg_color;
-      }
-    }
-  }
-}
-//■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-//二级目录
+//导航
 nav {
   position: fixed;
   top: 0;
-  left: @header_width;
+  left: 0;
   padding: @nav_padding;
   z-index: 8;
   box-sizing: border-box;
