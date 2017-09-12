@@ -10,10 +10,10 @@ axios.get('./contents-data.json')
     //目录
     Vue.component('tree-folder', {
       props: ['folder'],
-      template: '<p>' +
-                  '<span :data=folder.key>{{ folder.name }}</span>' +
+      template: '<div>' +
+                  '<div :data=folder.key>{{ folder.name }}</div>' +
                   '<tree-folder-contents :children="folder.children"/>' +
-                '</p>'
+                '</div>'
     });
     //目录内容
     Vue.component('tree-folder-contents', {
@@ -21,7 +21,7 @@ axios.get('./contents-data.json')
       template: '<ul>' +
                   '<li v-for="child in children">' +
                     '<tree-folder v-if="child.children" :folder="child"/>' +
-                    '<span v-else v-on:click="loadPage(child)" :data=child.key :class="{ active: child.isActive }">{{ child.name }}-{{ child.key }}</span>' +
+                    '<div v-else v-on:click="loadPage(child)" :data=child.key :class="{ active: child.isActive }">{{ child.name }}</div>' +
                   '</li>' +
                 '</ul>',
       methods: {
