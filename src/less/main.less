@@ -28,24 +28,32 @@ nav {
       margin-right: 10px;
       border: 1px solid rgba(0,0,0,0.5);
       &:hover,&.active{
-        background-color: rgba(29, 30, 37,0.6);
-        border: 1px solid rgba(50,50,200,0.5);
-        color: lighten(@nav_color, 20%);
+        // background-color: rgba(29, 30, 37,0.6);
+        border: 1px solid rgba(50,50,100,0.5);
+        color: #fff;
         cursor: pointer;
       }
-      &.active{
-        margin-right: -1px;
-        border: 1px solid rgba(0,0,0,0.5);
-        border-right: none;
-        background: @article_bg_color;
-      }
+      //项目
       div{
         padding: 7px;
-      }
-      div>div{
-        color: #aaf;
-        font-size: 16px;
-        font-weight: bolder;
+        //项目字体
+        span{
+          display: block;
+          padding: 5px;
+          color: #aaf;
+          font-size: 16px;
+          font-weight: bolder;
+        }
+        //子项目字体
+        ul li span{
+          color: #aaa;
+          font-weight: 400;
+          //子项目激活样式
+          &.active{
+            color: #fff;
+            background: #112;
+          }
+        }
       }
     }
   }

@@ -1,3 +1,4 @@
+//输入url，返回url参数对象
 function urlArgs() {
   var args={};
   var query=location.search.substring(1);
@@ -11,4 +12,15 @@ function urlArgs() {
     args[name]=value;
   }
   return args;
+}
+
+//遍历数据，设置导航所有项目的 isActive 为 false
+function setActiveFalse(data){
+  for(i=0;i<data.length;i++){
+    data[i].isActive=false;
+    for(ii=0;ii<data[i].children.length;ii++){
+      data[i].children[ii].isActive=false;
+    }
+  }
+  return data;
 }

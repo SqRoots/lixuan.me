@@ -11,7 +11,7 @@ axios.get('./contents-data.json')
     Vue.component('tree-folder', {
       props: ['folder'],
       template: '<div>' +
-                  '<div :data=folder.key>{{ folder.name }}</div>' +
+                  '<span :data=folder.key>{{ folder.name }}</span>' +
                   '<tree-folder-contents :children="folder.children"/>' +
                 '</div>'
     });
@@ -21,7 +21,7 @@ axios.get('./contents-data.json')
       template: '<ul>' +
                   '<li v-for="child in children">' +
                     '<tree-folder v-if="child.children" :folder="child"/>' +
-                    '<div v-else v-on:click="loadPage(child)" :data=child.key :class="{ active: child.isActive }">{{ child.name }}</div>' +
+                    '<span v-else v-on:click="loadPage(child)" :data=child.key :class="{ active: child.isActive }">{{ child.name }}</span>' +
                   '</li>' +
                 '</ul>',
       methods: {
@@ -33,14 +33,15 @@ axios.get('./contents-data.json')
             location.href="admin/index.php";
             return "";
           }
-          child.isActive=true;
+          nav.children=setActiveFalse(nav.children);  //设置导航所有项目的 isActive 为 false
+          child.isActive=true;                        //设置导航当前项目的 isActive 为 true
           document.getElementById('article').innerHTML=tree1+'--'+tree2;
           window.history.pushState({},0,"?tree1="+tree1+"&tree2="+tree2);
         }
       }
     });
     // 创建根实例
-    new Vue({
+    var nav=new Vue({
       el: '#nav',
       data: {
         children: tree_data
