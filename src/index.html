@@ -1,26 +1,68 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- 基本设置 -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Cache-Control" content="max-age=604800">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 主页信息 -->
     <meta name="keywords" content="李宣,老李,凡星有梦,野鹤,sqroot,sqroots">
     <meta name="description" content="李宣的个人主页">
     <title>李宣</title>
+    <!-- 载入样式 -->
     <link rel="stylesheet" href="./css/main.min.--timestamp--.css">
+    <!-- 载入脚本 -->
     <script src="//cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
     <script src="//cdn.bootcss.com/axios/0.16.2/axios.min.js"></script>
+    <!-- ico -->
     <link rel="icon" href="./favicon.ico">
   </head>
   <body>
+
+    <!-- ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 导航 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ -->
     <nav id='nav'>
-      <tree-folder-contents :children='children'></tree-folder-contents>
+      <!-- 导航头部 个人信息 -->
+      <div id="nav-head">
+        <div id="my-avatar">
+          <img src="./img/avatar.jpg" alt="李宣">
+          <p>李宣</p>
+          <p>数据分析师</p>
+        </div>
+        <div id="my-info">
+          <ul>
+            <li>
+              <span><a target="_blank" href="https://github.com/SqRoots"><i class="fi-social-github" title="Github"></i></a></span>
+              <span>Github</span>
+            </li>
+            <li>
+              <span><a target="_blank" href="https://www.linkedin.com/in/lixuanxyz/"><i class="fi-social-linkedin"></i></a></span>
+              <span>LinkedIn</span>
+            </li>
+            <li>
+              <span><a target="_blank" href="./page/my-info/index.html"><i class="fi-info"></i></a></span>
+              <span>Abute</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- 导航体部 目录 -->
+      <div id="nav-body">
+        <tree-folder-contents :children='children'></tree-folder-contents>
+      </div>
+      <!-- 导航尾部 管理 -->
+      <div id="console"><ul><li><a href="./console/admin.php">管理</a></li></ul></div>
     </nav>
+
+    <!-- ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 主体 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ -->
     <article>
       <div id="article" v-html="html"></div>
     </article>
-    <aside id="aside" v-show="assidShowQ">右侧边栏</aside>
+
+    <!-- ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 右侧边 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ -->
+    <aside id="aside" v-show="assidShowQ">也许你并不需要我，但我就在这里，哈哈~~</aside>
+
+    <!-- ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ javascript ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ -->
     <script type="text/javascript" src="./js/main.min.--timestamp--.js"></script>
   </body>
 </html>
