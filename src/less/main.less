@@ -13,12 +13,12 @@ nav {
   color: @nav_color;
   background-color: @nav_bg_color;
   .border-right;
-  // 导航头部 个人信息
+  // 导航-头部-个人信息
   div#nav-head{
     width: 100%;
     height: 250px;
     border-bottom: 1px solid rgba(0,0,0,0.5);
-    // 头像
+    // 导航-头部-个人信息-头像
     div#my-avatar{
       text-align: center;
       img{
@@ -27,12 +27,23 @@ nav {
         margin: 20px auto 0 auto;
         border-radius: 50%;
         border: 3px solid rgba(255,255,255,0.5);
+        &:hover{
+          cursor: pointer;
+        }
       }
       p{
         margin: 5px;
+        font-size: 6px;
+        span{
+          font-size: 18px;
+          color: rgb(200, 200, 200);
+          &:hover{
+            cursor: pointer;
+          }
+        }
       }
     }
-    // 连接
+    // 导航-头部-个人信息-连接
     div#my-info{
       margin-top: 10px;
       ul{
@@ -62,7 +73,7 @@ nav {
       }
     }
   }
-  // 导航体部 目录
+  // 导航-体部-目录
   div#nav-body ul{
     margin: 10px 0;
     padding: 0;
@@ -79,7 +90,7 @@ nav {
         color: #fff;
         cursor: pointer;
       }
-      //项目
+      //导航-体部-目录-项目
       div{
         padding: 7px;
         //项目字体
@@ -90,11 +101,11 @@ nav {
           font-size: 16px;
           font-weight: bolder;
         }
-        //子项目字体
+        //导航-体部-目录-项目-子项目字体
         ul li span{
           color: #aaa;
           font-weight: 400;
-          //子项目激活样式
+          //导航-体部-目录-项目-子项目激活样式
           &.active{
             color: #fff;
             background: #112;
@@ -103,7 +114,7 @@ nav {
       }
     }
   }
-  // 导航尾部 管理
+  // 导航-尾部-管理
   div#console>ul>li>{
 
   }

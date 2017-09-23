@@ -25,30 +25,34 @@
       <!-- 导航头部 个人信息 -->
       <div id="nav-head">
         <div id="my-avatar">
-          <img src="./img/avatar.jpg" alt="李宣">
-          <p>李宣</p>
+          <img src="./img/avatar.png" alt="我的照片" title="关于我" onclick="load_page('about-me')">
+          <p><span title="关于我" onclick="load_page('about-me')">李宣</span></p>
           <p>数据分析师</p>
         </div>
         <div id="my-info">
           <ul>
             <li>
-              <span><a target="_blank" href="https://github.com/SqRoots"><i class="fi-social-github" title="Github"></i></a></span>
+              <span><a href="./"><i class="fi-home" title="返回主页"></i></a></span>
+              <span>home</span>
+            </li>
+            <li>
+              <span><a target="_blank" href="https://github.com/SqRoots"><i class="fi-social-github" title="我的Github"></i></a></span>
               <span>Github</span>
             </li>
             <li>
-              <span><a target="_blank" href="https://www.linkedin.com/in/lixuanxyz/"><i class="fi-social-linkedin"></i></a></span>
+              <span><a target="_blank" href="https://www.linkedin.com/in/lixuanxyz/"><i class="fi-social-linkedin" title="我的领英"></i></a></span>
               <span>LinkedIn</span>
-            </li>
-            <li>
-              <span><a target="_blank" href="./page/my-info/index.html"><i class="fi-info"></i></a></span>
-              <span>Abute</span>
             </li>
           </ul>
         </div>
       </div>
       <!-- 导航体部 目录 -->
       <div id="nav-body">
-        <tree-folder-contents :children='children'></tree-folder-contents>
+        <ul id="nav-contents">
+          <li v-for="item in contents_data" @click="loadPage(item)" :class="[ {active: item.isActive}, 'level'+item.level]">
+            {{ item.name }}
+          </li>
+        </ul>
       </div>
       <!-- 导航尾部 管理 -->
       <!-- <div id="console"><ul><li><a href="./console/admin.php">管理</a></li></ul></div> -->

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     15324,        340]
-NotebookOptionsPosition[     14134,        302]
-NotebookOutlinePosition[     14477,        317]
-CellTagsIndexPosition[     14434,        314]
+NotebookDataLength[      8478,        209]
+NotebookOptionsPosition[      7343,        179]
+NotebookOutlinePosition[      7690,        194]
+CellTagsIndexPosition[      7647,        191]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -36,11 +36,19 @@ Cell[BoxData[{
     RowBox[{"Import", "[", "\"\<contents-data.xlsx\>\"", "]"}], "[", 
     RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
+  RowBox[{"columnName", "=", 
+   RowBox[{"data", "[", 
+    RowBox[{"[", 
+     RowBox[{"2", ",", 
+      RowBox[{"2", ";;", "6"}]}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{"data", "=", 
    RowBox[{"data", "[", 
     RowBox[{"[", 
-     RowBox[{";;", ",", 
-      RowBox[{"2", ";;", "7"}]}], "]"}], "]"}]}], 
+     RowBox[{
+      RowBox[{"3", ";;"}], ",", 
+      RowBox[{"2", ";;", "6"}]}], "]"}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"data", "=", 
@@ -53,8 +61,10 @@ Cell[BoxData[{
     "]"}]}], ";"}]}], "Input",
  CellChangeTimes->{
   3.7123946896051407`*^9, {3.7123977812107286`*^9, 3.71239783216778*^9}, 
-   3.7124042050697927`*^9, 
-   3.713695902625656*^9},ExpressionUUID->"5072cc37-061b-4d80-b34f-\
+   3.7124042050697927`*^9, 3.713695902625656*^9, {3.715155560060335*^9, 
+   3.7151555957931657`*^9}, {3.7151556747675867`*^9, 3.715155687602891*^9}, {
+   3.715155787015528*^9, 
+   3.7151558403617115`*^9}},ExpressionUUID->"5072cc37-061b-4d80-b34f-\
 4b7a60bf2e6f"]
 }, Open  ]],
 
@@ -69,88 +79,27 @@ Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{
-   RowBox[{"json", "=", 
+  RowBox[{"jsonData", "=", 
+   RowBox[{
     RowBox[{
-     RowBox[{
-      RowBox[{"<|", 
-       RowBox[{
-        RowBox[{"\"\<key\>\"", "\[Rule]", 
-         RowBox[{"#", "[", 
-          RowBox[{"[", 
-           RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ",", 
-        RowBox[{"\"\<name\>\"", "\[Rule]", 
-         RowBox[{"#", "[", 
-          RowBox[{"[", 
-           RowBox[{"1", ",", "2"}], "]"}], "]"}]}], ",", 
-        RowBox[{"\"\<isActive\>\"", "\[Rule]", "False"}], ",", 
-        RowBox[{"\"\<children\>\"", "\[Rule]", 
-         RowBox[{"(", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"<|", 
-             RowBox[{
-              RowBox[{"\"\<name\>\"", "\[Rule]", 
-               RowBox[{"#", "[", 
-                RowBox[{"[", "1", "]"}], "]"}]}], ",", 
-              RowBox[{"\"\<key\>\"", "\[Rule]", 
-               RowBox[{"#", "[", 
-                RowBox[{"[", "2", "]"}], "]"}]}], ",", 
-              RowBox[{"\"\<ico\>\"", "\[Rule]", 
-               RowBox[{"#", "[", 
-                RowBox[{"[", "3", "]"}], "]"}]}], ",", 
-              RowBox[{"\"\<value\>\"", "\[Rule]", 
-               RowBox[{"#", "[", 
-                RowBox[{"[", "4", "]"}], "]"}]}], ",", 
-              RowBox[{"\"\<isActive\>\"", "\[Rule]", "False"}]}], "|>"}], 
-            "&"}], "/@", 
-           RowBox[{"#", "[", 
-            RowBox[{"[", 
-             RowBox[{";;", ",", 
-              RowBox[{"3", ";;"}]}], "]"}], "]"}]}], ")"}]}]}], "|>"}], "&"}],
-      "/@", 
-     RowBox[{"GatherBy", "[", 
-      RowBox[{
-       RowBox[{"data", "[", 
-        RowBox[{"[", 
-         RowBox[{"3", ";;"}], "]"}], "]"}], ",", "First"}], "]"}]}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+     RowBox[{"<|", 
+      RowBox[{"Thread", "[", 
+       RowBox[{"columnName", "\[Rule]", "#"}], "]"}], "|>"}], "&"}], "/@", 
+    "data"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{"Export", "[", 
-  RowBox[{"\"\<../src/contents-data.json\>\"", ",", "json", ",", 
+  RowBox[{"\"\<../src/contents-data.json\>\"", ",", "jsonData", ",", 
    RowBox[{"\"\<Compact\>\"", "\[Rule]", "True"}], ",", 
    RowBox[{"CharacterEncoding", "\[Rule]", "\"\<UTF-8\>\""}]}], 
   "]"}]}], "Input",
- CellChangeTimes->{{3.7119665017518096`*^9, 3.7119665310331225`*^9}, {
-   3.7119688759158387`*^9, 3.7119688762781267`*^9}, {3.7119689131751914`*^9, 
-   3.7119689591792545`*^9}, {3.7119707963989325`*^9, 3.7119707990209827`*^9}, 
-   3.712015463203825*^9, {3.712028889450204*^9, 3.7120289099435234`*^9}, {
-   3.712028980735615*^9, 3.7120290072410765`*^9}, {3.7120333781299853`*^9, 
-   3.7120334180163536`*^9}, {3.712053951465312*^9, 3.7120539685617495`*^9}, 
-   3.7120540060992603`*^9, {3.712393964673469*^9, 3.7123939786271887`*^9}, {
-   3.71239476125399*^9, 3.712394764885409*^9}, 3.712394876230382*^9, 
-   3.7123950210552673`*^9, {3.7123977961523533`*^9, 3.712397796690607*^9}, {
-   3.7124041884711676`*^9, 3.7124042008240333`*^9}, 3.713695972433094*^9, {
-   3.7136982105754757`*^9, 3.7136982233144107`*^9}, {3.713698449887403*^9, 
-   3.713698468179785*^9}, {3.7136992874513383`*^9, 3.7136992885264487`*^9}, 
-   3.7136994072170434`*^9, 
-   3.713700744683878*^9},ExpressionUUID->"eb7872da-ffdf-44e7-a2bf-\
-5514ca496d04"],
+ CellChangeTimes->{{3.7151558759796333`*^9, 3.715155900320874*^9}, {
+  3.7151559326747513`*^9, 
+  3.715155946867344*^9}},ExpressionUUID->"ab9e151c-c1b9-479d-a295-\
+33dc764e2678"],
 
 Cell[BoxData["\<\"../src/contents-data.json\"\>"], "Output",
- CellChangeTimes->{
-  3.711970809590803*^9, 3.7120154640218983`*^9, 3.7120289121741886`*^9, {
-   3.712029008725762*^9, 3.7120290351313868`*^9}, {3.7120290808587093`*^9, 
-   3.7120290878096356`*^9}, 3.7120334192325954`*^9, 3.712034597053328*^9, 
-   3.7120540147545705`*^9, 3.7120557117343082`*^9, 3.71205574478257*^9, 
-   3.712058034296203*^9, 3.7120591728315024`*^9, 3.7123948772871428`*^9, 
-   3.7123950284997253`*^9, 3.7123960716506906`*^9, 3.7123978484277096`*^9, 
-   3.712400820695558*^9, 3.7124035596209373`*^9, 3.7124042101293216`*^9, 
-   3.7124042689975443`*^9, 3.7124053285865765`*^9, 3.712405441282683*^9, 
-   3.71240624862753*^9, 3.7136959733472104`*^9, {3.7136984505634346`*^9, 
-   3.713698477467091*^9}, 3.713699289053616*^9, 3.713699409216665*^9, 
-   3.7137007465900106`*^9, 
-   3.713705333909054*^9},ExpressionUUID->"89120dae-35c2-4344-b86b-\
-4b2b33ad5ef5"]
+ CellChangeTimes->{3.715155900801286*^9, 
+  3.7151559536892695`*^9},ExpressionUUID->"7f12e1bb-aa53-4db8-9a94-\
+7fb4a06231ad"]
 }, Open  ]]
 }, Open  ]],
 
@@ -165,53 +114,15 @@ Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"json", "=", 
+  RowBox[{"jsonData", "=", 
    RowBox[{
     RowBox[{
      RowBox[{"<|", 
-      RowBox[{
-       RowBox[{"\"\<key\>\"", "\[Rule]", 
-        RowBox[{"#", "[", 
-         RowBox[{"[", 
-          RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ",", 
-       RowBox[{"\"\<name\>\"", "\[Rule]", 
-        RowBox[{"#", "[", 
-         RowBox[{"[", 
-          RowBox[{"1", ",", "2"}], "]"}], "]"}]}], ",", 
-       RowBox[{"\"\<isActive\>\"", "\[Rule]", "False"}], ",", 
-       RowBox[{"\"\<children\>\"", "\[Rule]", 
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"<|", 
-            RowBox[{
-             RowBox[{"\"\<name\>\"", "\[Rule]", 
-              RowBox[{"#", "[", 
-               RowBox[{"[", "1", "]"}], "]"}]}], ",", 
-             RowBox[{"\"\<key\>\"", "\[Rule]", 
-              RowBox[{"#", "[", 
-               RowBox[{"[", "2", "]"}], "]"}]}], ",", 
-             RowBox[{"\"\<ico\>\"", "\[Rule]", 
-              RowBox[{"#", "[", 
-               RowBox[{"[", "3", "]"}], "]"}]}], ",", 
-             RowBox[{"\"\<value\>\"", "\[Rule]", 
-              RowBox[{"#", "[", 
-               RowBox[{"[", "4", "]"}], "]"}]}], ",", 
-             RowBox[{"\"\<isActive\>\"", "\[Rule]", "False"}]}], "|>"}], 
-           "&"}], "/@", 
-          RowBox[{"#", "[", 
-           RowBox[{"[", 
-            RowBox[{";;", ",", 
-             RowBox[{"3", ";;"}]}], "]"}], "]"}]}], ")"}]}]}], "|>"}], "&"}], 
-    "/@", 
-    RowBox[{"GatherBy", "[", 
-     RowBox[{
-      RowBox[{"data", "[", 
-       RowBox[{"[", 
-        RowBox[{"3", ";;"}], "]"}], "]"}], ",", "First"}], "]"}]}]}], 
-  ";"}], "\[IndentingNewLine]", 
+      RowBox[{"Thread", "[", 
+       RowBox[{"columnName", "\[Rule]", "#"}], "]"}], "|>"}], "&"}], "/@", 
+    "data"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{"Developer`WriteRawJSONString", "[", 
-  RowBox[{"json", ",", 
+  RowBox[{"jsonData", ",", 
    RowBox[{"\"\<Compact\>\"", "\[Rule]", "False"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.7119689449429426`*^9, 3.71196896081166*^9}, {
    3.7120154723844476`*^9, 3.712015491658478*^9}, 3.7120289179845963`*^9, 
@@ -223,66 +134,31 @@ Cell[BoxData[{
    3.713695893639143*^9}, 3.7136959644020057`*^9, 3.713698213013007*^9, {
    3.7136983774807253`*^9, 3.7136984711624246`*^9}, 3.7136991976796236`*^9, {
    3.71369927798546*^9, 3.713699282384961*^9}, {3.7136993550376606`*^9, 
-   3.7136993970227947`*^9}},ExpressionUUID->"af5ea7da-5aae-41d0-871f-\
+   3.7136993970227947`*^9}, {3.715155940853269*^9, 
+   3.7151559459585953`*^9}},ExpressionUUID->"af5ea7da-5aae-41d0-871f-\
 2e1e0cad81df"],
 
-Cell[BoxData["\<\"[\\n\\t{\\n\\t\\t\\\"key\\\":\\\"info\\\",\\n\\t\\t\\\"name\
-\\\":\\\"\:4e2a\:4eba\:4fe1\:606f\\\",\\n\\t\\t\\\"isActive\\\":false,\\n\\t\\\
-t\\\"children\\\":[\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\:5173\:4e8e\
-\:6211\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"about-me\\\",\\n\\t\\t\\t\\t\\\"ico\
-\\\":\\\"fi-torso\\\",\\n\\t\\t\\t\\t\\\"value\\\":\\\"\\\",\\n\\t\\t\\t\\t\\\
-\"isActive\\\":false\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\
-\"\:65f6\:95f4\:8f74\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"timeline\\\",\\n\\t\\\
-t\\t\\t\\\"ico\\\":\\\"fi-calendar\\\",\\n\\t\\t\\t\\t\\\"value\\\":\\\"\\\",\
-\\n\\t\\t\\t\\t\\\"isActive\\\":false\\n\\t\\t\\t}\\n\\t\\t]\\n\\t},\\n\\t{\\\
-n\\t\\t\\\"key\\\":\\\"manufacture\\\",\\n\\t\\t\\\"name\\\":\\\"\:6211\:5236\
-\:4f5c\:7684\[Times]\[Times]\\\",\\n\\t\\t\\\"isActive\\\":false,\\n\\t\\t\\\"\
-children\\\":[\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\:7b14\:8bb0\\\",\\\
-n\\t\\t\\t\\t\\\"key\\\":\\\"note\\\",\\n\\t\\t\\t\\t\\\"ico\\\":\\\"fi-book\\\
-\",\\n\\t\\t\\t\\t\\\"value\\\":\\\"\\\",\\n\\t\\t\\t\\t\\\"isActive\\\":\
-false\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\:7f51\:7ad9\\\
-\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"web\\\",\\n\\t\\t\\t\\t\\\"ico\\\":\\\"fi-\
-web\\\",\\n\\t\\t\\t\\t\\\"value\\\":\\\"\\\",\\n\\t\\t\\t\\t\\\"isActive\\\":\
-false\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\:535a\:5ba2\\\
-\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"blog\\\",\\n\\t\\t\\t\\t\\\"ico\\\":\\\"fi-\
-social-blogger\\\",\\n\\t\\t\\t\\t\\\"value\\\":\\\"\\\",\\n\\t\\t\\t\\t\\\"\
-isActive\\\":false\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\
-\:8d44\:6e90\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"tutorial\\\",\\n\\t\\t\\t\\t\\\
-\"ico\\\":\\\"fi-key\\\",\\n\\t\\t\\t\\t\\\"value\\\":\\\"\\\",\\n\\t\\t\\t\\\
-t\\\"isActive\\\":false\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\
-\\\"\:7167\:7247\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"photography\\\",\\n\\t\\t\
-\\t\\t\\\"ico\\\":\\\"fi-camera\\\",\\n\\t\\t\\t\\t\\\"value\\\":\\\"\\\",\\n\
-\\t\\t\\t\\t\\\"isActive\\\":false\\n\\t\\t\\t}\\n\\t\\t]\\n\\t},\\n\\t{\\n\\\
-t\\t\\\"key\\\":\\\"favorite\\\",\\n\\t\\t\\\"name\\\":\\\"\:6211\:559c\:6b22\
-\:7684\[Times]\[Times]\\\",\\n\\t\\t\\\"isActive\\\":false,\\n\\t\\t\\\"\
-children\\\":[\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\:7f51\:7ad9\\\",\\\
-n\\t\\t\\t\\t\\\"key\\\":\\\"web\\\",\\n\\t\\t\\t\\t\\\"ico\\\":\\\"fi-web\\\"\
-,\\n\\t\\t\\t\\t\\\"value\\\":\\\"\\\",\\n\\t\\t\\t\\t\\\"isActive\\\":false\\\
-n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\:8f6f\:4ef6\\\",\\n\
-\\t\\t\\t\\t\\\"key\\\":\\\"software\\\",\\n\\t\\t\\t\\t\\\"ico\\\":\\\"fi-\
-social-windows\\\",\\n\\t\\t\\t\\t\\\"value\\\":\\\"\\\",\\n\\t\\t\\t\\t\\\"\
-isActive\\\":false\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\
-\:4e66\:7c4d\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"book\\\",\\n\\t\\t\\t\\t\\\"\
-ico\\\":\\\"fi-book\\\",\\n\\t\\t\\t\\t\\\"value\\\":\\\"\\\",\\n\\t\\t\\t\\t\
-\\\"isActive\\\":false\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\
-\\\"\:6587\:7ae0\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"essay\\\",\\n\\t\\t\\t\\t\
-\\\"ico\\\":\\\"fi-page-filled\\\",\\n\\t\\t\\t\\t\\\"value\\\":\\\"\\\",\\n\\\
-t\\t\\t\\t\\\"isActive\\\":false\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"\
-name\\\":\\\"\:683c\:8a00\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"motto\\\",\\n\\t\
-\\t\\t\\t\\\"ico\\\":\\\"fi-bookmark\\\",\\n\\t\\t\\t\\t\\\"value\\\":\\\"\\\"\
-,\\n\\t\\t\\t\\t\\\"isActive\\\":false\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\t\\t\
-\\t\\\"name\\\":\\\"\:97f3\:4e50\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"music\\\",\
-\\n\\t\\t\\t\\t\\\"ico\\\":\\\"fi-music\\\",\\n\\t\\t\\t\\t\\\"value\\\":\\\"\
-\\\",\\n\\t\\t\\t\\t\\\"isActive\\\":false\\n\\t\\t\\t},\\n\\t\\t\\t{\\n\\t\\\
-t\\t\\t\\\"name\\\":\\\"\:5f71\:89c6\\\",\\n\\t\\t\\t\\t\\\"key\\\":\\\"movie\
-\\\",\\n\\t\\t\\t\\t\\\"ico\\\":\\\"fi-play-video\\\",\\n\\t\\t\\t\\t\\\"\
-value\\\":\\\"\\\",\\n\\t\\t\\t\\t\\\"isActive\\\":false\\n\\t\\t\\t}\\n\\t\\\
-t]\\n\\t},\\n\\t{\\n\\t\\t\\\"key\\\":\\\"management\\\",\\n\\t\\t\\\"name\\\"\
-:\\\"\:7ba1\:7406\\\",\\n\\t\\t\\\"isActive\\\":false,\\n\\t\\t\\\"children\\\
-\":[\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\\"name\\\":\\\"\\\",\\n\\t\\t\\t\\t\\\"key\\\
-\":\\\"\\\",\\n\\t\\t\\t\\t\\\"ico\\\":\\\"\\\",\\n\\t\\t\\t\\t\\\"value\\\":\
-\\\"\\\",\\n\\t\\t\\t\\t\\\"isActive\\\":false\\n\\t\\t\\t}\\n\\t\\t]\\n\\t}\\\
-n]\"\>"], "Output",
+Cell[BoxData["\<\"[\\n\\t{\\n\\t\\t\\\"level\\\":1.0,\\n\\t\\t\\\"key\\\":\\\"\
+favorite\\\",\\n\\t\\t\\\"name\\\":\\\"\:6211\:559c\:6b22\:7684XX\\\",\\n\\t\\\
+t\\\"ico\\\":\\\"fi-star\\\",\\n\\t\\t\\\"value\\\":\\\"\\\"\\n\\t},\\n\\t{\\\
+n\\t\\t\\\"level\\\":2.0,\\n\\t\\t\\\"key\\\":\\\"web\\\",\\n\\t\\t\\\"name\\\
+\":\\\"\:7f51\:7ad9\\\",\\n\\t\\t\\\"ico\\\":\\\"fi-web\\\",\\n\\t\\t\\\"\
+value\\\":\\\"\\\"\\n\\t},\\n\\t{\\n\\t\\t\\\"level\\\":2.0,\\n\\t\\t\\\"key\\\
+\":\\\"software\\\",\\n\\t\\t\\\"name\\\":\\\"\:8f6f\:4ef6\\\",\\n\\t\\t\\\"\
+ico\\\":\\\"fi-social-windows\\\",\\n\\t\\t\\\"value\\\":\\\"\\\"\\n\\t},\\n\\\
+t{\\n\\t\\t\\\"level\\\":2.0,\\n\\t\\t\\\"key\\\":\\\"book\\\",\\n\\t\\t\\\"\
+name\\\":\\\"\:4e66\:7c4d\\\",\\n\\t\\t\\\"ico\\\":\\\"fi-book\\\",\\n\\t\\t\\\
+\"value\\\":\\\"\\\"\\n\\t},\\n\\t{\\n\\t\\t\\\"level\\\":2.0,\\n\\t\\t\\\"\
+key\\\":\\\"essay\\\",\\n\\t\\t\\\"name\\\":\\\"\:77ed\:6587\\\",\\n\\t\\t\\\"\
+ico\\\":\\\"fi-page-filled\\\",\\n\\t\\t\\\"value\\\":\\\"\\\"\\n\\t},\\n\\t{\
+\\n\\t\\t\\\"level\\\":2.0,\\n\\t\\t\\\"key\\\":\\\"motto\\\",\\n\\t\\t\\\"\
+name\\\":\\\"\:683c\:8a00\\\",\\n\\t\\t\\\"ico\\\":\\\"fi-bookmark\\\",\\n\\t\
+\\t\\\"value\\\":\\\"\\\"\\n\\t},\\n\\t{\\n\\t\\t\\\"level\\\":2.0,\\n\\t\\t\\\
+\"key\\\":\\\"music\\\",\\n\\t\\t\\\"name\\\":\\\"\:97f3\:4e50\\\",\\n\\t\\t\\\
+\"ico\\\":\\\"fi-music\\\",\\n\\t\\t\\\"value\\\":\\\"\\\"\\n\\t},\\n\\t{\\n\\\
+t\\t\\\"level\\\":2.0,\\n\\t\\t\\\"key\\\":\\\"movie\\\",\\n\\t\\t\\\"name\\\"\
+:\\\"\:5f71\:89c6\\\",\\n\\t\\t\\\"ico\\\":\\\"fi-play-video\\\",\\n\\t\\t\\\"\
+value\\\":\\\"\\\"\\n\\t}\\n]\"\>"], "Output",
  CellChangeTimes->{{3.71201547272445*^9, 3.712015491934478*^9}, 
    3.712028918460908*^9, {3.71202901274405*^9, 3.7120290308899436`*^9}, 
    3.7120290818111286`*^9, 3.7120334226386495`*^9, 3.712034597804327*^9, 
@@ -295,14 +171,15 @@ n]\"\>"], "Output",
    3.7136959646832542`*^9, 3.713698247501643*^9, {3.713698417294963*^9, 
    3.713698475128049*^9}, 3.713699282992268*^9, {3.7136993614043674`*^9, 
    3.7136993975150566`*^9}, 3.71370072435538*^9, 3.7137039644333906`*^9, 
-   3.713705336388365*^9},ExpressionUUID->"b74c1b2b-9488-4366-88a8-\
-bc37068eabae"]
+   3.713705336388365*^9, {3.715155942257993*^9, 
+   3.715155949074422*^9}},ExpressionUUID->"657dab2e-bcd7-4fa9-aa10-\
+8855484dff36"]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{858, 833},
 WindowMargins->{{Automatic, 72}, {37, Automatic}},
-FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (April 18, 2017)",
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -317,29 +194,21 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 150, 3, 67, "Subchapter", "ExpressionUUID" -> \
-"b4f8693a-ead5-4591-a4d1-c15cb8a83f5d"],
-Cell[733, 27, 969, 30, 88, "Input", "ExpressionUUID" -> \
-"5072cc37-061b-4d80-b34f-4b7a60bf2e6f"]
+Cell[580, 22, 150, 3, 64, "Subchapter",ExpressionUUID->"b4f8693a-ead5-4591-a4d1-c15cb8a83f5d"],
+Cell[733, 27, 1334, 40, 105, "Input",ExpressionUUID->"5072cc37-061b-4d80-b34f-4b7a60bf2e6f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1739, 62, 178, 3, 67, "Subchapter", "ExpressionUUID" -> \
-"3ddd37bf-658c-43cd-8d67-057c018d0546"],
+Cell[2104, 72, 178, 3, 64, "Subchapter",ExpressionUUID->"3ddd37bf-658c-43cd-8d67-057c018d0546"],
 Cell[CellGroupData[{
-Cell[1942, 69, 2975, 67, 126, "Input", "ExpressionUUID" -> \
-"eb7872da-ffdf-44e7-a2bf-5514ca496d04"],
-Cell[4920, 138, 932, 14, 30, "Output", "ExpressionUUID" -> \
-"89120dae-35c2-4344-b86b-4b2b33ad5ef5"]
+Cell[2307, 79, 666, 17, 48, "Input",ExpressionUUID->"ab9e151c-c1b9-479d-a295-33dc764e2678"],
+Cell[2976, 98, 186, 3, 88, "Output",ExpressionUUID->"7f12e1bb-aa53-4db8-9a94-7fb4a06231ad"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5901, 158, 178, 3, 67, "Subchapter", "ExpressionUUID" -> \
-"7d3a8290-8cf0-4ee6-b990-e7e498dc8061"],
+Cell[3211, 107, 178, 3, 64, "Subchapter",ExpressionUUID->"7d3a8290-8cf0-4ee6-b990-e7e498dc8061"],
 Cell[CellGroupData[{
-Cell[6104, 165, 2609, 61, 107, "Input", "ExpressionUUID" -> \
-"af5ea7da-5aae-41d0-871f-2e1e0cad81df"],
-Cell[8716, 228, 5390, 70, 2609, "Output", "ExpressionUUID" -> \
-"b74c1b2b-9488-4366-88a8-bc37068eabae"]
+Cell[3414, 114, 1273, 24, 48, "Input",ExpressionUUID->"af5ea7da-5aae-41d0-871f-2e1e0cad81df"],
+Cell[4690, 140, 2625, 35, 1116, "Output",ExpressionUUID->"657dab2e-bcd7-4fa9-aa10-8855484dff36"]
 }, Open  ]]
 }, Open  ]]
 }
