@@ -19,6 +19,14 @@ axios.get('./contents-data.json')
       methods: {
         //加载页面
         loadPage: function(item){
+          //修改 url
+          var args=urlArgs();
+          var key=args.key||"about";
+          window.history.pushState({},0,"?key="+item.key);
+          //加载页面
+          article.html=item.key;
+          //更改类 active
+          console.log(nav);
           for(i=0;i<nav.contents_data.length;i++){
             nav.contents_data[i].isActive=false;
           }
@@ -26,6 +34,12 @@ axios.get('./contents-data.json')
           console.log(item);
         }
       }
+    });
+    //内容
+    var articleData = '李宣';
+    var article = new Vue({
+      el: '#article',
+      data: {html: articleData}
     });
   })
   .catch(function(error) {

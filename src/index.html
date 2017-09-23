@@ -49,14 +49,22 @@
       <!-- 导航体部 目录 -->
       <div id="nav-body">
         <ul id="nav-contents">
-          <li v-for="item in contents_data" @click="loadPage(item)" :class="[ {active: item.isActive}, 'level'+item.level]">
+          <li v-for="item in contents_data" v-if="item.level==1" :class="[ {active: item.isActive}, 'level'+item.level]">
             {{ item.name }}
+          </li>
+          <li v-for="item in contents_data" v-if="item.level>=2" @click="loadPage(item)" :class="[ {active: item.isActive}, 'level'+item.level]">
+            <span><i :class="item.ico" :title="item.name"></i></span>{{ item.name }}
           </li>
         </ul>
       </div>
       <!-- 导航尾部 管理 -->
       <!-- <div id="console"><ul><li><a href="./console/admin.php">管理</a></li></ul></div> -->
-      <div id="console"><ul><li onclick="window.location='./console/admin.php'">管理</li></ul></div>
+      <div id="console">
+        <ul>
+          <li onclick="window.location='./console/admin.php'">管理</li>
+          <li onclick="window.location='./console/admin.php'">关于</li>
+        </ul>
+      </div>
     </nav>
 
     <!-- ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 主体 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ -->

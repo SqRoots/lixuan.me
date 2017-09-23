@@ -74,49 +74,67 @@ nav {
     }
   }
   // 导航-体部-目录
-  div#nav-body ul{
+  div#nav-body>ul{
     margin: 10px 0;
     padding: 0;
-    li{
+    li.level1{
       list-style-type: none;
-      padding: 0;
-      margin-top: 3px;
-      margin-left: 10px;
-      margin-right: 10px;
-      border: 1px solid rgba(0,0,0,0.5);
-      &:hover,&.active{
-        // background-color: rgba(29, 30, 37,0.6);
-        border: 1px solid rgba(50,50,100,0.5);
+      box-sizing: border-box;
+      margin-top: 10px;
+      text-align: center;
+      padding: 6px;
+      border-bottom: 1px solid rgba(0,0,0,0.5);
+      color: darken(@nav_color, 40%);
+      font-size: 18px;
+      cursor: default;
+    }
+    li.level2{
+      list-style-type: none;
+      box-sizing: border-box;
+      padding: 6px 0;
+      margin: 0;
+      border-bottom: 1px solid rgba(0,0,0,0.5);
+      border-left: 6px solid @nav_bg_color;
+      font-size: 16px;
+      color: darken(@nav_color,20%);
+      &:hover{
+        background-color: @article_bg_color;
+        border-left: 6px solid rgb(80,80,150);
         color: #fff;
         cursor: pointer;
       }
-      //导航-体部-目录-项目
-      div{
-        padding: 7px;
-        //项目字体
-        span{
-          display: block;
-          padding: 5px;
-          color: #aaf;
-          font-size: 16px;
-          font-weight: bolder;
-        }
-        //导航-体部-目录-项目-子项目字体
-        ul li span{
-          color: #aaa;
-          font-weight: 400;
-          //导航-体部-目录-项目-子项目激活样式
-          &.active{
-            color: #fff;
-            background: #112;
-          }
-        }
+      &.active{
+        background-color: @article_bg_color;
+        margin-right: -1px;
+        border-left: 6px solid rgb(80,80,150);
+        border-right: 1px solid @article_bg_color;
+        color: #fff;
+      }
+      span{
+        width: 30px;
+        display: block;
+        float: left;
+        text-align: center;
+        font-size: 18px;
+        color: darken(@nav_color,40%);;
       }
     }
   }
   // 导航-尾部-管理
-  div#console>ul>li>{
-
+  div#console{
+    position: absolute;
+    bottom: 12px;
+    ul{
+      text-align: center;
+      li{
+        float: left;
+        margin: 0 10px;
+        list-style-type: none;
+        &:hover{
+        cursor: pointer;
+        }
+      }
+    }
   }
 }
 //■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
@@ -128,7 +146,7 @@ article {
   z-index: 7;
   padding-top: @article_padding;
   padding-bottom: @article_padding;
-  padding-left: @header_width + @nav_width;
+  padding-left: @nav_width;
   padding-right: @aside_width;
   width: 100%;
   height: 100%;
