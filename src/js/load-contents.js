@@ -9,7 +9,6 @@ axios.get('./contents-data.json')
     for(i=0;i<tree_data.length;i++){
       tree_data[i].isActive=false;
     }
-    console.log(tree_data);
     // 创建根实例
     var nav=new Vue({
       el: '#nav',
@@ -26,12 +25,10 @@ axios.get('./contents-data.json')
           //加载页面
           article.html=item.key;
           //更改类 active
-          console.log(nav);
           for(i=0;i<nav.contents_data.length;i++){
             nav.contents_data[i].isActive=false;
           }
           item.isActive=true;
-          console.log(item);
         }
       }
     });

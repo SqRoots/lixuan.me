@@ -21,14 +21,24 @@ nav {
     // 导航-头部-个人信息-头像
     div#my-avatar{
       text-align: center;
+      padding: 20px auto 0 auto;
       img{
         width: 100px;
         height: 100px;
-        margin: 20px auto 0 auto;
         border-radius: 50%;
         border: 3px solid rgba(255,255,255,0.5);
+
+        transition: transform 0.5s;
+        -moz-transition: transform 0.5s; /* Firefox 4 */
+        -webkit-transition: transform 0.5s; /* Safari 和 Chrome */
+        -o-transition: transform 0.5s; /* Opera */
         &:hover{
           cursor: pointer;
+          transform: rotate(360deg);
+          -ms-transform: rotate(360deg);		/* IE 9 */
+          -webkit-transform: rotate(360deg);	/* Safari and Chrome */
+          -o-transform: rotate(360deg);		/* Opera */
+          -moz-transform: rotate(360deg);		/* Firefox */
         }
       }
       p{
@@ -64,6 +74,10 @@ nav {
             color: rgba(221, 190, 236, 0.5);
             &:hover{
               color: rgba(221, 190, 236, 0.9);
+              transition: color 0.3s;
+              -moz-transition: color 0.3s; /* Firefox 4 */
+              -webkit-transition: color 0.3s; /* Safari 和 Chrome */
+              -o-transition: color 0.3s; /* Opera */
             }
             i{
               font-size: 22px;
@@ -84,8 +98,10 @@ nav {
       text-align: center;
       padding: 6px;
       border-bottom: 1px solid rgba(0,0,0,0.5);
-      color: darken(@nav_color, 40%);
+      letter-spacing: 7px;
+      color: #505050;
       font-size: 18px;
+      font-weight: 600;
       cursor: default;
     }
     li.level2{
@@ -93,7 +109,7 @@ nav {
       box-sizing: border-box;
       padding: 6px 0;
       margin: 0;
-      border-bottom: 1px solid rgba(0,0,0,0.5);
+      border-bottom: 1px solid rgba(0,0,0,0.2);
       border-left: 6px solid @nav_bg_color;
       font-size: 16px;
       color: darken(@nav_color,20%);
@@ -102,6 +118,10 @@ nav {
         border-left: 6px solid rgb(80,80,150);
         color: #fff;
         cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+        -moz-transition: background 0.3s, color 0.3s; /* Firefox 4 */
+        -webkit-transition: background 0.3s, color 0.3s; /* Safari 和 Chrome */
+        -o-transition: background 0.3s, color 0.3s; /* Opera */
       }
       &.active{
         background-color: @article_bg_color;
@@ -123,16 +143,18 @@ nav {
   // 导航-尾部-管理
   div#console{
     position: absolute;
-    bottom: 12px;
-    ul{
-      text-align: center;
-      li{
-        float: left;
-        margin: 0 10px;
-        list-style-type: none;
-        &:hover{
-        cursor: pointer;
-        }
+    bottom: 0;
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(0,0,0,0.5);
+    text-align: center;
+    span{
+      cursor: pointer;
+      margin: 0 20px;
+      color: darken(@nav_color,40%);
+      &:hover{
+        color: @nav_color;
       }
     }
   }
