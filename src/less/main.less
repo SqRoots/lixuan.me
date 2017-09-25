@@ -16,18 +16,17 @@ nav {
   // 导航-头部-个人信息
   div#nav-head{
     width: 100%;
-    height: 250px;
-    border-bottom: 1px solid rgba(0,0,0,0.5);
+    height: 230px;
+    .border-bottom;
     // 导航-头部-个人信息-头像
     div#my-avatar{
       text-align: center;
-      padding: 20px auto 0 auto;
+      margin-top: 20px;
       img{
         width: 100px;
         height: 100px;
         border-radius: 50%;
         border: 3px solid rgba(255,255,255,0.5);
-
         transition: transform 0.5s;
         -moz-transition: transform 0.5s; /* Firefox 4 */
         -webkit-transition: transform 0.5s; /* Safari 和 Chrome */
@@ -44,6 +43,7 @@ nav {
       p{
         margin: 5px;
         font-size: 6px;
+        color: #505050;
         span{
           font-size: 18px;
           color: rgb(200, 200, 200);
@@ -69,6 +69,7 @@ nav {
             display: block;
             width: 50px;
             font-size: 5px;
+            color: #505050;
           }
           a{
             color: rgba(221, 190, 236, 0.5);
@@ -89,12 +90,11 @@ nav {
   }
   // 导航-体部-目录
   div#nav-body>ul{
-    margin: 10px 0;
+    margin: 0;
     padding: 0;
     li.level1{
       list-style-type: none;
       box-sizing: border-box;
-      margin-top: 10px;
       text-align: center;
       padding: 6px;
       border-bottom: 1px solid rgba(0,0,0,0.5);
@@ -129,6 +129,9 @@ nav {
         border-left: 6px solid rgb(80,80,150);
         border-right: 1px solid @article_bg_color;
         color: #fff;
+        i{
+          color: #fff;
+        }
       }
       span{
         width: 30px;
@@ -145,7 +148,7 @@ nav {
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 12px;
+    padding: 8px;
     box-sizing: border-box;
     border-top: 1px solid rgba(0,0,0,0.5);
     text-align: center;
@@ -211,5 +214,12 @@ aside {
   border-right-style: solid;
   border-right-width: 1px;
   border-right-color: rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 3px rgba(50,50,100,0.3);
+}
+
+.border-bottom {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(0,0,0,0.5);
   box-shadow: 0px 0px 3px rgba(50,50,100,0.3);
 }
